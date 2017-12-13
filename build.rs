@@ -9,10 +9,10 @@ use std::env;
 
 fn main() {
     // if the system version of fontconfig is at least 2.11.1, use it
-    if let Ok(lib) = pkg_config::Config::new().atleast_version("2.11.1").find("fontconfig") {
-        println!("cargo:incdir={}", lib.include_paths[0].clone().into_os_string().into_string().unwrap());
-        return;
-    }
+    // if let Ok(lib) = pkg_config::Config::new().atleast_version("2.11.1").find("fontconfig") {
+    //     println!("cargo:incdir={}", lib.include_paths[0].clone().into_os_string().into_string().unwrap());
+    //     return;
+    // }
 
     assert!(Command::new("make")
         .env("MAKEFLAGS", env::var("CARGO_MAKEFLAGS").unwrap_or_default())
